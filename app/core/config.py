@@ -1,3 +1,11 @@
-from fastapi import FastAPI
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
-app = FastAPI(title="Enterprise Knowledge Assistant")
+class Settings(BaseSettings):
+    DATABASE_URL: str
+    SECRET_KEY: str
+    ALGORITHM: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int
+
+    model_config = SettingsConfigDict(env_file=".env")
+
+settings = Settings()    
