@@ -43,7 +43,7 @@ def create_access_token(data: dict):
 
     to_encode = data.copy()
 
-    expire = datetime.now(timezone.utc) + timedelta(
+    expire = datetime.now(timezone.utc) + timedelta( #now() is Constraint
         minutes= settings.ACCESS_TOKEN_EXPIRE_MINUTES
     )
 
